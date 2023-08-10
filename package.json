@@ -4,7 +4,7 @@
   "description": "A minimal solution for multiplayer bingo",
   "main": "bingo.js",
   "scripts": {
-    "test": "node_modules/@playwright/test/cli.js test",
+    "test": "node_modules/@playwright/test/cli.js test"
   },
   "author": "",
   "license": "ISC",
