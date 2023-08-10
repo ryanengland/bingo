@@ -579,6 +579,9 @@ class BingoApp extends window.HTMLElement {
     clearInterval(this.getReadyInterval)
     this.game.status = 'playing'
     this.elements.status.innerText = 'Game is starting...'
+    setTimeout(() => {
+      this.elements.status.innerText = '';
+    }, 5000)
     this.classList.add('started')
     this.enableClaimButton()
     this.generateGameCard()
