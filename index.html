@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BINGO!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  	<bingo-app>
+  		<div class="row">
+  			<h2>Bingo</h2>
+  		</div>
+  		<div class="row">
+  			<h4>Built with WebComponents, zero dependencies</h4>
+  		</div>
+  		<div class="row pad">
+  			<div id="players"></div>
+  		</div>
+  		<div class="row pad">
+  			<button id="start">Start</button>
+  			<button id="reset">Reset</button>
+  		</div>
+  		<div class="row pad">
+  			<div id="called"></div>
+  		</div>
+  		<div class="row center pad">
+  			<h1 id="next"></h1>
+  		</div>
+  		<div class="row pad">
+  			<div id="status" class="text-center"></div>
+  		</div>
+  		<div class="row pad">
+  			<div id="gamecard"></div>
+  		</div>
+  		<div class="row pad">
+  			<button id="claim" disabled>Bingo!</button>
+  		</div>
+  	</bingo-app>
+	<script src="relay.js"></script>
+	<script src="bingo.js"></script>
+  </body>
+</html>
