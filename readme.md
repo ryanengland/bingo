@@ -48,4 +48,7 @@ Enjoy, just head to [https://squid-bingo.github.io](https://squid-bingo.github.i
 
 ## To test
 
-`npm install` first, then run `npm run test`
+`npm install` first, then run:
+- `npm run test` - to run both unit tests and e2e tests
+- `npm run test:unit` - to run unit tests with coverage
+- `npm run test:e2e` - to run e2e tests
