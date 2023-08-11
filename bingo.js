@@ -29,8 +29,9 @@ class BingoApp extends window.HTMLElement {
    * 5. Start the game!
    *
    * @constructor
+   * @params {Class} [relay] Optionally pass the relay class into constructor for testing
    */
-  constructor () {
+  constructor (relay = null) {
     super()
 
     // Currently the room ID is static, meaning everyone will join the same room when they visit the page.
@@ -44,10 +45,12 @@ class BingoApp extends window.HTMLElement {
       this.room = 'kithnbftyudtghjenb73678'
     }
 
-    console.log(this.room)
-
     // Instantiate our relay class, used for communicating with other players.
-    this.relay = new Relay(this.room)
+    if(relay !== null){
+      this.relay = new relay(this.room)
+    }else{
+      this.relay = new Relay(this.room)
+    }
 
     this.relay.responseHandler = this
 
