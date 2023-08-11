@@ -4,19 +4,28 @@
   "description": "A minimal solution for multiplayer bingo",
   "main": "bingo.js",
   "scripts": {
-    "test": "node_modules/@playwright/test/cli.js test"
+    "test": "jest bingo.test.js && node_modules/@playwright/test/cli.js test bingo.spec.js",
+    "test:unit": "jest bingo.test.js --coverage",
+    "test:unit:watch": "jest bingo.test.js --watch --coverage",
+    "test:e2e": "node_modules/@playwright/test/cli.js test bingo.spec.js"
+  },
+  "jest": {
+    "automock": false,
+    "resetMocks": false,
+    "verbose": true,
+    "testEnvironment": "jsdom"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
   "devDependencies": {
+    "@playwright/test": "^1.36.2",
+    "chai": "^4.3.7",
     "eslint": "^8.46.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-n": "^15.7.0",
-    "@playwright/test": "^1.36.2",
-    "chai": "^4.3.7",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
     "jsdom": "^22.1.0",
     "jsdom-global": "^3.0.2",
     "live-server": "^1.2.2",
