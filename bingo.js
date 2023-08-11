@@ -716,3 +716,5 @@ class BingoApp extends window.HTMLElement {
 }
 
 window.customElements.get('bingo-app') || window.customElements.define('bingo-app', BingoApp)
+
+if(typeof module != 'undefined') module.exports = BingoApp;

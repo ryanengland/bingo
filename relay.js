@@ -197,3 +197,5 @@ class Relay {
     this.send({ command: 'iamhost', clientID: this.clientID })
   }
 }
+
+if(typeof module != 'undefined') module.exports = Relay;
