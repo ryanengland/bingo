@@ -97,12 +97,12 @@ class BingoApp extends window.HTMLElement {
    * Sets the initial gameplay state, which is waiting for others to join.
    */
   setInitialState () {
-    this.elements.status.innerText = 'Waiting to join...'
-    this.elements.called.innerText = ''
-    this.elements.next.innerText = ''
-    this.elements.startButton.disabled = true
-    this.elements.resetButton.disabled = true
-    this.elements.claimButton.disabled = true
+    if(this.elements.status) this.elements.status.innerText = 'Waiting to join...'
+    if(this.elements.called) this.elements.called.innerText = ''
+    if(this.elements.next) this.elements.next.innerText = ''
+    if(this.elements.startButton) this.elements.startButton.disabled = true
+    if(this.elements.resetButton) this.elements.resetButton.disabled = true
+    if(this.elements.claimButton) this.elements.claimButton.disabled = true
 
     this.game = {
       status: 'joining',
@@ -121,9 +121,9 @@ class BingoApp extends window.HTMLElement {
     this.addEventListener('command', (event) => { this.handleCommand(event.detail) })
 
     // Listen for interactions with our UI elements (some of which are only available to hosts)
-    this.elements.startButton.addEventListener('click', (event) => { this.startGame() }) // Host-only function
-    this.elements.resetButton.addEventListener('click', (event) => { this.resetGame() }) // Host-only function
-    this.elements.claimButton.addEventListener('click', (event) => { this.lodgeClaim() }) // All players function
+    if(this.elements.startButton) this.elements.startButton.addEventListener('click', (event) => { this.startGame() }) // Host-only function
+    if(this.elements.startButton) this.elements.resetButton.addEventListener('click', (event) => { this.resetGame() }) // Host-only function
+    if(this.elements.startButton) this.elements.claimButton.addEventListener('click', (event) => { this.lodgeClaim() }) // All players function
 
     // We listen to beforeUnload to notify everyone that a player has left.
     window.addEventListener('beforeunload', (event) => { console.log('beforeunload'); this.leaveGame() })
@@ -136,7 +136,6 @@ class BingoApp extends window.HTMLElement {
    * @param {string} command.command - this is the specific command being sent, for example 'join' or 'start'
    */
   handleCommand (command) {
-    console.log('command', command)
     switch (command.command) {
       case 'hostidentify': // A user is requesting the host to idenfity themselves
         this.commandHostIdentify()
